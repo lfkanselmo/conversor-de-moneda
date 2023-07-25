@@ -1,31 +1,17 @@
 package entidades;
 
-public class Moneda {
-	private Double dinero;
-	private String tipoMoneda;
-	
-	public Moneda(Double dinero, String tipoMoneda) {
-		this.dinero = dinero;
-		this.tipoMoneda = tipoMoneda;
-	}
+public abstract class Moneda {
 
-	public Double getDinero() {
-		return dinero;
-	}
+	public abstract double convertirA_Dolares(double valor);
 
-	public void setDinero(Double dinero) {
-		this.dinero = dinero;
-	}
+	public abstract double convertirA_Euros(double valor);
 
-	public String getTipoMoneda() {
-		return tipoMoneda;
-	}
+	public abstract double convertirA_Libras(double valor);
 
-	public void setTipoMoneda(String tipoMoneda) {
-		this.tipoMoneda = tipoMoneda;
-	}
-	
-	
-	
-	
+	public abstract double convertirA_Yen(double valor);
+
+	public abstract double convertirA_Won(double valor);
+
+	public abstract double convertirA_PesoCol(double valor);
+
 }
