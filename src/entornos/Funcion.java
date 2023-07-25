@@ -19,22 +19,27 @@ public class Funcion {
 
 		String input = JOptionPane.showInputDialog("Ingresa la cantidad de dinero que deseas convertir: ");
 
-		double dinero = Double.valueOf(input);
+		
 
-		if (validador(dinero)) {
-			resultado = conversor.convertir(monedaEntrada, monedaSalida, dinero);
+		if (validador(input)) {
+			resultado = conversor.convertir(monedaEntrada, monedaSalida, Double.valueOf(input));
 			JOptionPane.showMessageDialog(null,
-					dinero + " " + monedaEntrada + " equivalen a " + resultado + " " + monedaSalida);
+					Double.valueOf(input) + " " + monedaEntrada + " equivalen a " + resultado + " " + monedaSalida);
 		} else {
 			JOptionPane.showMessageDialog(null, "Valor inválido");
 
 		}
 	}
 
-	public boolean validador(double valor) {
+	
+	//Funcioón de validación de dinero ingresado
+	public boolean validador(String input) {
+		
+		
 
 		try {
-			if (valor > 0) {
+			double dinero = Double.valueOf(input);
+			if (dinero > 0) {
 				return true;
 			}
 
