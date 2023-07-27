@@ -24,5 +24,5 @@ Adiciones futuras de nuevas monedas, mejora en la tasa de conversión quizás po
 ante dudas o ayuda, 
 https://www.linkedin.com/in/anselmo-ortega-acosta/
 
-##Autores
+Autor
 https://github.com/lfkanselmo
