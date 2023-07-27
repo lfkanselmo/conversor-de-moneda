@@ -1,6 +1,6 @@
 package entornos;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 import conversores.ConversorMonedas;
 
@@ -11,31 +11,40 @@ public class Funcion {
 	Object[] monedas = new Object[] { "peso", "dolar", "euro", "libra", "yen", "won" };
 
 	public void procesoConversion() {
-		String monedaEntrada = (JOptionPane.showInputDialog(null, "Elije el tipo de moneda de entrada ", "Monedas",
-				JOptionPane.PLAIN_MESSAGE, null, monedas, "Seleccion")).toString();
 
-		String monedaSalida = (JOptionPane.showInputDialog(null, "Elije el tipo de moneda de salida ", "Monedas",
-				JOptionPane.PLAIN_MESSAGE, null, monedas, "Seleccion")).toString();
+		String monedaEntrada = " ";
+		String monedaSalida = " ";
+		String input = " ";
 
-		String input = JOptionPane.showInputDialog("Ingresa la cantidad de dinero que deseas convertir: ");
+		try {
+			monedaEntrada = (JOptionPane.showInputDialog(null, "Elije el tipo de moneda de entrada ", "Monedas",
+					JOptionPane.PLAIN_MESSAGE, null, monedas, "Seleccion")).toString();
 
-		
+			monedaSalida = (JOptionPane.showInputDialog(null, "Elije el tipo de moneda de salida ", "Monedas",
+					JOptionPane.PLAIN_MESSAGE, null, monedas, "Seleccion")).toString();
+
+			input = (JOptionPane.showInputDialog("Ingresa la cantidad de dinero que deseas convertir: ")).toString();
+
+		} catch (NullPointerException e) {
+			input = "0";
+		}
 
 		if (validador(input)) {
 			resultado = conversor.convertir(monedaEntrada, monedaSalida, Double.valueOf(input));
 			JOptionPane.showMessageDialog(null,
 					Double.valueOf(input) + " " + monedaEntrada + " equivalen a " + resultado + " " + monedaSalida);
 		} else {
-			JOptionPane.showMessageDialog(null, "Valor inválido");
+			if (input != "0") {
+				JOptionPane.showMessageDialog(null, "Valor inválido");
+			} else {
+				JOptionPane.showMessageDialog(null, "Cancelado");
+			}
 
 		}
 	}
 
-	
-	//Funcioón de validación de dinero ingresado
+	// Función de validación de dinero ingresado
 	public boolean validador(String input) {
-		
-		
 
 		try {
 			double dinero = Double.valueOf(input);
